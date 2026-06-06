@@ -1,5 +1,4 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
 
-// https://astro.build/config
+// Con Tailwind v4 ya no necesitas pasar nada por las integrations de Astro
 export default defineConfig({});

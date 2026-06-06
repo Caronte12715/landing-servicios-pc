@@ -1,0 +1,51 @@
+---
+const testimonios = [
+  {
+    nombre: "Carlos Mendoza",
+    empresa: "Estudio Creativo",
+    texto: "Excelente servicio. Vinieron a mi oficina el mismo día y arreglaron el problema con nuestro servidor en tiempo récord.",
+    estrellas: "⭐⭐⭐⭐⭐"
+  },
+  {
+    nombre: "Ana Martínez",
+    empresa: "Cliente particular",
+    texto: "Mi laptop estaba súper lenta y se apagaba sola. Le hicieron mantenimiento y quedó como nueva. Muy recomendados.",
+    estrellas: "⭐⭐⭐⭐⭐"
+  },
+  {
+    nombre: "Roberto Gómez",
+    empresa: "Agencia de Ventas",
+    texto: "Nos instalaron toda la red de la nueva oficina. Internet estable, sin cables a la vista y todo muy profesional.",
+    estrellas: "⭐⭐⭐⭐⭐"
+  }
+];
+---
+
+<section id="testimonios" class="py-20 bg-slate-50 border-t border-slate-200">
+  <div class="container mx-auto px-6 max-w-6xl">
+    
+    <!-- Cabecera de la sección -->
+    <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
+        Lo que dicen nuestros clientes
+      </h2>
+      <p class="text-slate-600 text-lg">
+        La satisfacción de quienes confían en nosotros es nuestra mejor carta de presentación.
+      </p>
+    </div>
+
+    <!-- Cuadrícula de testimonios -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {testimonios.map((testimonio, index) => (
+        <div class={`bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow reveal delay-${index * 100}`}>
+          <div class="text-sm mb-4">{testimonio.estrellas}</div>
+          <p class="text-slate-600 italic mb-6">"{testimonio.texto}"</p>
+          <div>
+            <h4 class="font-bold text-slate-900">{testimonio.nombre}</h4>
+            <span class="text-sm text-slate-500">{testimonio.empresa}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
