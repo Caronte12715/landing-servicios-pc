@@ -1,3 +1,5 @@
+# Flujo de trabajo para desplegar Astro en GitHub Pages
+# Forzando un cambio para desatascar Git
 name: Deploy to GitHub Pages
 
 on:
