@@ -1,59 +1,46 @@
 ---
+const links = [
+  { name: 'Servicios', href: '#servicios' },
+  { name: 'Por qué elegirnos', href: '#features' },
+  { name: 'Testimonios', href: '#testimonios' }
+];
 ---
-<header class="fixed w-full top-0 z-50 bg-slate-900/95 backdrop-blur-sm border-b border-slate-800">
-  <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-    <!-- Logo -->
-    <a href="#" class="text-white font-bold text-xl tracking-tight">
-      Tech<span class="text-blue-500">Soluciones</span>
-    </a>
+
+<header class="fixed w-full top-0 z-50 transition-all duration-300 backdrop-blur-md bg-pc-dark/80 border-b border-white/5" id="navbar">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
     
-    <!-- Enlaces de navegación (Ocultos en móvil, visibles en escritorio) -->
-    <nav class="hidden md:flex gap-8 text-sm font-medium">
-      <a href="#" class="text-slate-300 hover:text-white transition-colors">Inicio</a>
-      <a href="#servicios" class="text-slate-300 hover:text-white transition-colors">Servicios</a>
-      <a href="#contacto" class="text-slate-300 hover:text-white transition-colors">Contacto</a>
+    <!-- Logo -->
+    <a href="#" class="flex items-center gap-3 group">
+      <div class="w-10 h-10 rounded-sm bg-pc-cyan/10 border border-pc-cyan/30 flex items-center justify-center group-hover:bg-pc-cyan/20 transition-colors">
+        <svg class="w-6 h-6 text-pc-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      </div>
+      <span class="font-mono font-bold text-xl tracking-tight text-white group-hover:text-pc-cyan transition-colors">
+        NEXUS<span class="text-pc-cyan">.IT</span>
+      </span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex gap-8">
+      {links.map(link => (
+        <a href={link.href} class="text-sm font-mono font-medium text-pc-muted hover:text-pc-cyan transition-colors tracking-wide">
+          {link.name}
+        </a>
+      ))}
     </nav>
 
-    <!-- Botón CTA -->
+    <!-- CTA & Mobile -->
     <div class="flex items-center gap-4">
-      <a href="#contacto" class="hidden md:inline-flex bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-full text-sm font-semibold transition-colors shadow-lg shadow-blue-600/20">
-        Cotizar ahora
+      <a href="#contacto" class="hidden md:flex bg-pc-cyan/10 border border-pc-cyan text-pc-cyan px-6 py-2 rounded-sm font-mono text-sm font-bold tracking-wide hover:bg-pc-cyan hover:text-pc-dark transition-all duration-300 glow-border">
+        _DIAGNÓSTICO
       </a>
       
-      <!-- Botón menú móvil (hamburguesa) -->
-      <button id="mobile-menu-button" class="md:hidden text-slate-300 hover:text-white p-2">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      <button class="md:hidden text-pc-text hover:text-pc-cyan transition-colors" id="mobile-menu-btn" aria-label="Menu">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
       </button>
     </div>
   </div>
-
-  <!-- Menú móvil desplegable (oculto por defecto) -->
-  <div id="mobile-menu" class="hidden md:hidden bg-slate-800 border-t border-slate-700">
-    <nav class="flex flex-col px-4 py-6 space-y-4 text-center">
-      <a href="#" class="mobile-link text-slate-300 hover:text-white transition-colors font-medium">Inicio</a>
-      <a href="#servicios" class="mobile-link text-slate-300 hover:text-white transition-colors font-medium">Servicios</a>
-      <a href="#contacto" class="mobile-link text-slate-300 hover:text-white transition-colors font-medium">Contacto</a>
-      <a href="#contacto" class="mobile-link inline-block bg-blue-600 text-white px-5 py-2 rounded-full text-sm font-semibold mt-4">Cotizar ahora</a>
-    </nav>
-  </div>
 </header>
-
-<script>
-  // Lógica simple para abrir y cerrar el menú en móviles
-  const btn = document.getElementById('mobile-menu-button');
-  const menu = document.getElementById('mobile-menu');
-  const links = document.querySelectorAll('.mobile-link');
-
-  btn?.addEventListener('click', () => {
-    menu?.classList.toggle('hidden');
-  });
-
-  // Cerrar el menú automáticamente al hacer clic en un enlace
-  links.forEach(link => {
-    link.addEventListener('click', () => {
-      menu?.classList.add('hidden');
-    });
-  });
-</script>

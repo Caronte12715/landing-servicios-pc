@@ -1,48 +1,29 @@
 ---
 const faqs = [
-  {
-    pregunta: "¿Cuánto tiempo tardan en reparar un equipo?",
-    respuesta: "Depende del diagnóstico, pero el 80% de las reparaciones y optimizaciones de software se resuelven el mismo día. Si requiere repuestos, toma entre 24 y 48 horas."
-  },
-  {
-    pregunta: "¿Ofrecen servicio a domicilio o remoto?",
-    respuesta: "¡Sí, ambos! Para problemas de software ofrecemos soporte remoto inmediato. Para hardware o redes, un técnico capacitado irá a tu ubicación."
-  },
-  {
-    pregunta: "¿El diagnóstico tiene costo?",
-    respuesta: "Si apruebas la reparación con nosotros, el diagnóstico es 100% gratuito. Si decides no realizar el trabajo, solo se cobra una tarifa mínima por la revisión."
-  },
-  {
-    pregunta: "¿Sus servicios tienen garantía?",
-    respuesta: "Absolutamente. Todos nuestros trabajos de hardware tienen garantía de 3 meses, y los servicios de red/software tienen garantía de 30 días."
-  }
+  { q: "¿Cuánto tiempo toma el diagnóstico?", a: "El protocolo de diagnóstico inicial toma aproximadamente 2-4 horas. Se te enviará un reporte detallado al correo." },
+  { q: "¿Usan piezas originales?", a: "Únicamente trabajamos con componentes de grado OEM y marcas reconocidas mundialmente (Corsair, Asus, Noctua, etc)." },
+  { q: "¿Tengo garantía?", a: "Sí, todos los mantenimientos físicos tienen 90 días de garantía. Las piezas nuevas tienen garantía directa del fabricante." }
 ];
 ---
 
-<section id="faq" class="py-24 bg-slate-50 border-t border-slate-200">
-  <div class="container mx-auto px-6 max-w-3xl">
-    <div class="text-center mb-16 reveal">
-      <span class="text-blue-600 font-bold tracking-wider uppercase text-sm mb-3 block">Dudas comunes</span>
-      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Preguntas Frecuentes</h2>
-      <p class="text-slate-600">Resolvemos tus inquietudes para que confíes plenamente en nuestro trabajo.</p>
+<section class="py-32 bg-pc-dark relative border-b border-white/5">
+  <div class="max-w-4xl mx-auto px-6 reveal">
+    <div class="text-center mb-16">
+      <h2 class="font-mono text-3xl font-bold text-white mb-2">SISTEMA DE AYUDA / FAQ</h2>
+      <div class="w-24 h-1 bg-pc-cyan mx-auto"></div>
     </div>
 
     <div class="space-y-4">
-      {faqs.map((faq, index) => (
-        <details class={`group bg-white border border-slate-200 rounded-2xl shadow-sm reveal delay-${index * 100} [&_summary::-webkit-details-marker]:hidden`}>
-          <summary class="flex cursor-pointer items-center justify-between gap-1.5 p-6 text-slate-900 font-semibold select-none">
-            <h2 class="text-lg">{faq.pregunta}</h2>
-            <span class="relative h-5 w-5 shrink-0 text-blue-600">
-              <svg xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 h-5 w-5 opacity-100 group-open:opacity-0 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <svg xmlns="http://www.w3.org/2000/svg" class="absolute inset-0 h-5 w-5 opacity-0 group-open:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
+      {faqs.map((faq) => (
+        <details class="glass-panel group rounded-sm [&_summary::-webkit-details-marker]:hidden cursor-pointer">
+          <summary class="flex items-center justify-between p-6 font-mono font-bold text-white focus:outline-none">
+            <span class="group-open:text-pc-cyan transition-colors">{faq.q}</span>
+            <span class="text-pc-cyan transition group-open:rotate-180">
+              <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path></svg>
             </span>
           </summary>
-          <div class="px-6 pb-6 text-slate-600 leading-relaxed">
-            <p>{faq.respuesta}</p>
+          <div class="p-6 pt-0 font-sans text-pc-muted text-sm border-t border-white/5 mt-2">
+            {faq.a}
           </div>
         </details>
       ))}

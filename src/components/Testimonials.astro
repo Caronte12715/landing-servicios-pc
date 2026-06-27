@@ -1,51 +1,46 @@
 ---
-const testimonios = [
+const testimonials = [
   {
-    nombre: "Carlos Mendoza",
-    empresa: "Estudio Creativo",
-    texto: "Excelente servicio. Vinieron a mi oficina el mismo día y arreglaron el problema con nuestro servidor en tiempo récord.",
-    estrellas: "⭐⭐⭐⭐⭐"
+    text: "Mi Workstation para renderizado 3D no encendía. En NEXUS.IT diagnosticaron una falla en la fuente de poder, la reemplazaron y optimizaron el flujo de aire. Ahora el equipo vuela.",
+    author: "Carlos M.",
+    role: "Arquitecto"
   },
   {
-    nombre: "Ana Martínez",
-    empresa: "Cliente particular",
-    texto: "Mi laptop estaba súper lenta y se apagaba sola. Le hicieron mantenimiento y quedó como nueva. Muy recomendados.",
-    estrellas: "⭐⭐⭐⭐⭐"
-  },
-  {
-    nombre: "Roberto Gómez",
-    empresa: "Agencia de Ventas",
-    texto: "Nos instalaron toda la red de la nueva oficina. Internet estable, sin cables a la vista y todo muy profesional.",
-    estrellas: "⭐⭐⭐⭐⭐"
+    text: "Rescataron más de 2TB de información vital de un disco duro que había sufrido una caída. El nivel de profesionalismo y la transparencia en el proceso fue excepcional.",
+    author: "Laura G.",
+    role: "Fotógrafa"
   }
 ];
 ---
 
-<section id="testimonios" class="py-20 bg-slate-50 border-t border-slate-200">
-  <div class="container mx-auto px-6 max-w-6xl">
+<section id="testimonios" class="py-32 bg-pc-dark relative border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-6">
     
-    <!-- Cabecera de la sección -->
-    <div class="text-center max-w-2xl mx-auto mb-16 reveal">
-      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-        Lo que dicen nuestros clientes
-      </h2>
-      <p class="text-slate-600 text-lg">
-        La satisfacción de quienes confían en nosotros es nuestra mejor carta de presentación.
-      </p>
+    <div class="mb-16 reveal">
+      <h2 class="font-mono text-3xl font-bold text-white mb-2">LOGS DE USUARIO</h2>
+      <div class="w-24 h-1 bg-pc-indigo"></div>
     </div>
 
-    <!-- Cuadrícula de testimonios -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {testimonios.map((testimonio, index) => (
-        <div class={`bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow reveal delay-${index * 100}`}>
-          <div class="text-sm mb-4">{testimonio.estrellas}</div>
-          <p class="text-slate-600 italic mb-6">"{testimonio.texto}"</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {testimonials.map((t, index) => (
+        <div class={`glass-panel p-8 rounded-sm reveal delay-${(index + 1) * 100} relative overflow-hidden group`}>
+          <div class="absolute top-0 left-0 w-1 h-full bg-pc-indigo/30 group-hover:bg-pc-indigo transition-colors duration-300"></div>
+          
+          <svg class="w-8 h-8 text-pc-indigo mb-6 opacity-50" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+          </svg>
+          
+          <p class="font-sans text-pc-muted text-base leading-relaxed mb-8">
+            {t.text}
+          </p>
+          
           <div>
-            <h4 class="font-bold text-slate-900">{testimonio.nombre}</h4>
-            <span class="text-sm text-slate-500">{testimonio.empresa}</span>
+            <p class="font-mono font-bold text-white uppercase">{t.author}</p>
+            <p class="font-mono text-xs text-pc-cyan uppercase">{t.role}</p>
           </div>
         </div>
       ))}
     </div>
+    
   </div>
 </section>

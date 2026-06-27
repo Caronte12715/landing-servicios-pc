@@ -1,77 +1,60 @@
 ---
-// Definimos los servicios en un arreglo de objetos para que sea fácil editarlos o agregar más después
-const servicios = [
+const services = [
   {
-    id: 1,
-    icono: "💻",
-    titulo: "Reparación de Computadoras",
-    descripcion: "Diagnóstico completo, cambio de componentes defectuosos, reparación de placas base y optimización avanzada de laptops y computadoras de escritorio."
+    title: "Mantenimiento Preventivo",
+    description: "Limpieza profunda de hardware, cambio de pasta térmica y optimización de flujo de aire para máximo rendimiento.",
+    icon: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z",
+    iconInner: "M15 12a3 3 0 11-6 0 3 3 0 016 0z"
   },
   {
-    id: 2,
-    icono: "⚡",
-    titulo: "Mantenimiento Preventivo",
-    descripcion: "Limpieza interna profunda, cambio de pasta térmica y optimización de software para evitar sobrecalentamientos y prolongar la vida útil de tus equipos."
+    title: "Recuperación de Datos",
+    description: "Extracción segura de información en discos dañados. Protocolos de encriptación y respaldos en la nube.",
+    icon: "M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4",
+    iconInner: ""
   },
   {
-    id: 3,
-    icono: "🌐",
-    titulo: "Instalación de Redes",
-    descripcion: "Diseño y estructurado de redes locales (LAN/Wi-Fi), configuración de routers, repetidores y servidores para garantizar una conexión estable y rápida."
+    title: "Ensamblaje Custom",
+    description: "Armado de PCs de alto rendimiento para Workstations, Arquitectura y Gaming extremo con gestión de cables impecable.",
+    icon: "M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z",
+    iconInner: ""
   },
   {
-    id: 4,
-    icono: "🛡️",
-    titulo: "Eliminación de Virus y Malware",
-    descripcion: "Limpieza profunda de sistemas infectados, instalación de herramientas de seguridad y protección perimetral para resguardar tus datos valiosos."
-  },
-  {
-    id: 5,
-    icono: "💾",
-    titulo: "Recuperación de Datos",
-    descripcion: "Rescate de información perdida, borrada o de discos duros dañados, almacenamiento seguro y configuración de copias de seguridad automáticas."
-  },
-  {
-    id: 6,
-    icono: "🏢",
-    titulo: "Soporte para Empresas",
-    descripcion: "Planes de asistencia técnica mensual para oficinas y negocios locales, asegurando que tus sistemas y operaciones nunca se detengan."
+    title: "Soporte Remoto 24/7",
+    description: "Asistencia técnica inmediata para resolución de problemas de software, virus y configuraciones de red.",
+    icon: "M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9",
+    iconInner: ""
   }
 ];
 ---
 
-<section id="servicios" class="py-20 bg-white">
-  <div class="container mx-auto px-6 max-w-6xl">
+<section id="servicios" class="py-32 bg-pc-panel relative border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-6">
     
-    <!-- Cabecera de la sección -->
-    <div class="text-center max-w-2xl mx-auto mb-16 reveal">
-      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-        Servicios Especializados en Tecnología
+    <div class="text-center max-w-2xl mx-auto mb-20 reveal">
+      <h2 class="font-mono text-4xl md:text-5xl font-bold text-white mb-6">
+        Nuestros <span class="text-pc-cyan">Sistemas</span>
       </h2>
-      <p class="text-slate-600 text-lg">
-        Ofrecemos soluciones informáticas integrales con garantía y rapidez para que tus herramientas digitales funcionen siempre al 100%.
+      <p class="font-sans text-pc-muted text-lg">
+        Soluciones de ingeniería informática diseñadas para maximizar la vida útil y el rendimiento de tus equipos.
       </p>
     </div>
 
-    <!-- Cuadrícula de Tarjetas de Servicios -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {servicios.map((servicio, index) => (
-        <div class={`p-8 bg-slate-50 border border-slate-100 rounded-2xl hover:border-blue-500 hover:bg-white hover:shadow-xl transition-all duration-300 group reveal delay-${(index % 3) * 100}`}>
-          <!-- Icono del Servicio -->
-          <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-2xl mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors duration-300">
-            {servicio.icono}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {services.map((service, index) => (
+        <div class={`glass-panel p-8 rounded-sm hover:-translate-y-2 transition-all duration-300 group reveal delay-${(index % 4 + 1) * 100}`}>
+          <div class="w-14 h-14 bg-pc-cyan/10 rounded flex items-center justify-center mb-6 group-hover:bg-pc-cyan transition-colors duration-300">
+            <svg class="w-7 h-7 text-pc-cyan group-hover:text-pc-dark transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={service.icon} />
+              {service.iconInner && <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={service.iconInner} />}
+            </svg>
           </div>
-          
-          <!-- Título y Descripción -->
-          <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
-            {servicio.titulo}
-          </h3>
-          <p class="text-slate-600 leading-relaxed">
-            {servicio.descripcion}
+          <h3 class="font-mono text-xl font-bold text-white mb-4 group-hover:text-pc-cyan transition-colors">{service.title}</h3>
+          <p class="font-sans text-pc-muted text-sm leading-relaxed">
+            {service.description}
           </p>
         </div>
       ))}
     </div>
-
+    
   </div>
 </section>
